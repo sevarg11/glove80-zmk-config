@@ -98,6 +98,20 @@
             bindings = <&kp DOT &kp SPACE>;
             label = "DOUBLE_SPACE_PERIOD";
         };
+
+        Copy: Copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(C)>;
+            label = "COPY";
+        };
+
+        Paste: Paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(V)>;
+            label = "PASTE";
+        };
     };
 
     combos {
