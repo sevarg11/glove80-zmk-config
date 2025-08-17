@@ -115,7 +115,7 @@
         double_space_period: double_space_period {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOT &kp SPACE>;
+            bindings = <&kp DOT &kp SPACE &sk LSHIFT>;
             label = "DOUBLE_SPACE_PERIOD";
         };
 
