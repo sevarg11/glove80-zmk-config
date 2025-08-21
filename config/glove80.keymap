@@ -153,12 +153,12 @@
             layers = <0>;
         };
 
-        uma {
+        um_lc_a {
             bindings = <&um_lc_a>;
             key-positions = <72 35>;
         };
 
-        umA {
+        um_uc_a {
             bindings = <&um_uc_A>;
             key-positions = <72 52 35>;
         };
