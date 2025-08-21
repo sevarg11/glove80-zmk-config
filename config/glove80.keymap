@@ -48,6 +48,8 @@
             label = "DOUBLETAPSHIFT";
             #binding-cells = <0>;
             bindings = <&sk LEFT_SHIFT>, <&caps_word>;
+
+            tapping-term-ms = <500>;
         };
 
         SpaceBarTapDance: SpaceBarTapDance {
@@ -57,22 +59,10 @@
             bindings = <&kp SPACE>, <&double_space_period>;
         };
 
-        CopyHT: CopyHT {
+        ShiftHold: ShiftHold {
             compatible = "zmk,behavior-hold-tap";
-            label = "COPYHT";
-            bindings = <&Copy>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <280>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            quick-tap-ms = <175>;
-        };
-
-        PasteHT: PasteHT {
-            compatible = "zmk,behavior-hold-tap";
-            label = "PASTEHT";
-            bindings = <&Paste>, <&kp>;
+            label = "SHIFTHOLD";
+            bindings = <&shiftPressKey>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <280>;
@@ -125,18 +115,11 @@
             label = "DOUBLE_SPACE_PERIOD";
         };
 
-        Copy: Copy {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(C)>;
-            label = "COPY";
-        };
-
-        Paste: Paste {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(V)>;
-            label = "PASTE";
+        shiftPressKey: shiftPressKey {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "SHIFTPRESSKEY";
         };
     };
 
@@ -163,12 +146,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp F1      &kp F2    &kp F3   &kp F4       &kp F5                                                                                                       &kp F6  &kp F7     &kp F8    &kp F9    &kp F10
-&kp EQUAL   &kp N1    &kp N2   &kp N3       &kp N4        &kp N5                                                                                 &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB     &kp Q     &kp W    &kp E        &kp R         &kp T                                                                                  &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
-&kp ESC     &kp A     &kp S    &kp D        &kp F         &kp G                                                                                  &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
-&kp GRAVE   &kp Z     &kp X    &CopyHT 0 C  &PasteHT 0 V  &kp B   &DoubleTapShift  &sk LCTRL  &layer_td  &kp LGUI  &sk RCTRL  &sk RSHFT          &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp PG_UP
-&magic 2 0  &kp HOME  &kp END  &kp LEFT     &kp RIGHT             &kp BACKSPACE    &kp DEL    &sk LALT   &sk RALT  &kp RET    &SpaceBarTapDance          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
+&kp F1      &kp F2                &kp F3                &kp F4                &kp F5                                                                                                                                           &kp F6                &kp F7                &kp F8                &kp F9                &kp F10
+&kp ESC     &ShiftHold LS(N1) N1  &ShiftHold LS(N2) N2  &ShiftHold LS(N3) N3  &ShiftHold LS(N4) N4  &ShiftHold LS(N5) N5                                                                                 &ShiftHold LS(N6) N6  &ShiftHold LS(N7) N7  &ShiftHold LS(N8) N8  &ShiftHold LS(N9) N9  &ShiftHold LS(N0) N0  &kp BACKSLASH
+&kp TAB     &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                                                                                                &kp Y                 &kp U                 &kp I                 &kp O                 &kp P                 &kp MINUS
+&kp EQUAL   &kp A                 &kp S                 &kp D                 &kp F                 &kp G                                                                                                &kp H                 &kp J                 &kp K                 &kp L                 &kp SEMI              &kp SQT
+&kp GRAVE   &ShiftHold LS(Z) Z    &ShiftHold LS(X) X    &ShiftHold LS(C) C    &ShiftHold LS(V) V    &kp B                 &DoubleTapShift  &sk LCTRL  &layer_td  &kp LGUI  &sk RCTRL  &sk RSHFT          &kp N                 &kp M                 &kp COMMA             &kp DOT               &kp FSLH              &kp PG_UP
+&magic 3 0  &kp HOME              &kp END               &kp LEFT              &kp RIGHT                                   &kp BACKSPACE    &kp DEL    &sk LALT   &sk RALT  &kp RET    &SpaceBarTapDance                        &kp UP                &kp DOWN              &kp LBKT              &kp RBKT              &kp PG_DN
             >;
         };
 
@@ -180,6 +163,17 @@
 &trans        &none         &kp LEFT    &kp DOWN    &kp RIGHT  &kp PG_UP                                                  &kp PRCNT  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &none
 &trans        &kp K_CMENU   &none       &kp F11     &kp F12    &kp PG_DN  &trans  &trans  &to 0   &trans  &trans  &trans  &kp COMMA  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &trans
 &trans        &kp CAPS      &kp INS     &kp F11     &kp F12               &trans  &trans  &trans  &trans  &trans  &trans             &kp KP_N0   &kp KP_N0     &kp KP_DOT     &kp KP_ENTER     &trans
+            >;
+        };
+
+        Deutsch {
+            bindings = <
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5                                                                                  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                                                                  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&trans  &kp Q   &kp W   &kp E   &kp R   &kp T                                                                   &kp Z   &kp U   &kp I   &kp O   &kp P   &trans
+&trans  &kp A   &kp S   &kp D   &kp F   &kp G                                                                   &kp H   &kp J   &kp K   &kp L   &trans  &trans
+&trans  &trans  &kp Y   &kp X   &kp C   &kp V   &kp LSHFT  &kp LCTRL  &trans    &kp LGUI  &kp RCTRL  &kp RSHFT  &kp B   &kp N   &kp M   &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &kp BSPC   &kp DEL    &kp LALT  &kp RALT  &kp RET    &kp SPACE          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
