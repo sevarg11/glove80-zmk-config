@@ -36,6 +36,11 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 
+/* To deal with the situation where there is no Lower layer, to keep &lower happy */
+#ifndef LAYER_Lower
+#define LAYER_Lower 0
+#endif
+
 / {
     underglow-layer {
         compatible = "zmk,underglow-layer";
