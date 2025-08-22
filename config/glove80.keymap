@@ -155,14 +155,14 @@
             label = "SCHLUSS";
         };
 
-        um_lc_a: uma {
+        um_lc_a: um_lc_a {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp RA(N0) &kp RA(N2) &kp RA(N2) &kp RA(N8)>;
             label = "Umlaut a";
         };
 
-        um_uc_A: umA {
+        um_uc_A: um_uc_a {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp RA(N1) &kp RA(N4) &kp RA(N2)>;
