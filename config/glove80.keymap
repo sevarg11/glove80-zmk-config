@@ -41,25 +41,7 @@
 #define LAYER_Lower 0
 #endif
 
-/ {
-    underglow-layer {
-        compatible = "zmk,underglow-layer";
 
-        lower {
-            bindings = <
-    &ug ___ &ug ___         &ug ___         &ug ___         &ug ___                                                                                          &ug ___         &ug ___         &ug ___         &ug ___         &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL                                                  &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL                                                  &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___         &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL                                                  &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___         &ug ___         &ug ___         &ug ___
-    &ug ___ &ug ___         &ug ___         &ug ___         &ug ___                         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___                 &ug ___         &ug ___         &ug ___         &ug ___         &ug ___
-                >;
-            layer-id = <LOWER>;
-        };
-
-        // Add more RGB layers here
-    };
-};
 
 // ==== PER-KEY-RGB <section ends> =====
 
