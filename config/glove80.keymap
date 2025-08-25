@@ -22,8 +22,11 @@
 #define FACTORY_TEST 3
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
+
 #ifndef LAYER_Lower
+
 #define LAYER_Lower 0
+
 #endif
 
 /* Custom Device-tree */
@@ -52,7 +55,7 @@
 
 / {
     underglow-layer {
-        compatible  = "zmk,underglow-layer";
+        compatible = "zmk,underglow-layer";
 
         base {
             bindings = <
@@ -62,7 +65,8 @@
     &ug ___ CAPSL   CAPSL    CAPSL    CAPSL    CAPSL                                                  CAPSL  CAPSL    CAPSL    CAPSL    CAPSL    &ug ___
     &ug ___ CAPSL   CAPSL    CAPSL    CAPSL    CAPSL &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ CAPSL  CAPSL    &ug ___  &ug ___  &ug ___  &ug ___
     LBAT    &ug ___ &ug ___  &ug ___  &ug ___        &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___        &ug ___  &ug ___  &ug ___  &ug ___  LBAT
-                >;
+            >;
+
             layer-id = <DEFAULT>;
         };
 
@@ -74,12 +78,12 @@
     &ug PURPLE &ug ___  &ug ORANGE &ug    RED &ug ORANGE &ug ___                                                              &ug ___ NUML     NUML        NUML       &ug ORANGE  &ug ___
     &ug   BLUE &ug ___  &ug RED    &ug    RED &ug    RED &ug ___  &ug_cl BLUE TEAL &ug ___   &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ NUML     NUML        NUML       &ug    RED  &ug BLUE
     &ug ___    &ug ___  &ug ORANGE &ug ORANGE &ug ORANGE          &ug ___          &ug GREEN &ug ___  &ug ___ &ug ___ &ug ___         NUML     NUML        &ug ORANGE &ug    RED  &ug ___
-                >;
+            >;
+
             layer-id = <LOWER>;
         };
     };
 };
-
 
 &sk { quick-release; };
 
@@ -232,8 +236,9 @@
         };
     };
 
-/* #define for key positions */
-#define POS_LH_T1 52
+    /* #define for key positions */
+
+    #define POS_LH_T1 52
 #define POS_LH_T2 53
 #define POS_LH_T3 54
 #define POS_LH_T4 69
@@ -314,7 +319,6 @@
 #define POS_RH_C6R5 63
 #define POS_RH_C6R6 79
 
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -356,6 +360,17 @@
 &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                   &none  &none  &none  &none  &none  &bootloader
 &sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none         &none  &none  &none  &none  &none  &none  &none  &none  &sys_reset
 &none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &to 0
+            >;
+        };
+
+        Language_Layer {
+            bindings = <
+&trans  &trans           &trans     &trans  &trans                                                                  &trans           &trans  &trans           &trans  &trans
+&trans  &trans           &trans     &trans  &trans  &trans                                                  &trans  &trans           &trans  &trans           &trans  &trans
+&trans  &trans           &trans     &trans  &trans  &trans                                                  &trans  &kp DE_U_UMLAUT  &trans  &kp DE_U_UMLAUT  &trans  &trans
+&trans  &kp DE_A_UMLAUT  &kp DE_SZ  &trans  &trans  &trans                                                  &trans  &trans           &trans  &trans           &trans  &trans
+&trans  &trans           &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans  &trans           &trans  &trans
+&trans  &trans           &trans     &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans           &trans  &trans           &trans  &trans
             >;
         };
     };
