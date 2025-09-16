@@ -19,7 +19,8 @@
 #define DEFAULT 0
 #define LOWER 1
 #define MAGIC 2
-#define FACTORY_TEST 3
+#define LANGUAGE 3
+#define FACTORY_TEST 4
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 
@@ -82,6 +83,19 @@
 
             layer-id = <LOWER>;
         };
+
+        languageLayer {
+            bindings = <
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug RED &ug ___ &ug RED &ug ___ &ug ___
+                &ug ___ &ug RED &ug RED &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                >;
+            layer-id = <LANGUAGE>;
+        };
+*/
     };
 };
 
