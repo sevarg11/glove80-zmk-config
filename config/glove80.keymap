@@ -95,7 +95,6 @@
                 >;
             layer-id = <LANGUAGE>;
         };
-*/
     };
 };
 
