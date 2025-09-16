@@ -92,7 +92,8 @@
                 &ug ___ &ug RED &ug RED &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___ &ug ___ &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                >;
+            >;
+
             layer-id = <LANGUAGE>;
         };
     };
@@ -110,7 +111,7 @@
             label = "LAYER_TAP_DANCE";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&mo 1>, <&to 1>;
+            bindings = <&mo 2>, <&to 2>;
         };
 
         magic: magic_hold_tap {
@@ -192,6 +193,15 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71>;
         };
+
+        mm_DelLanguageLayer: mm_DelLanguageLayer {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_DELLANGUAGELAYER";
+            bindings = <&kp DEL>, <&sl 4>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     macros {
@@ -253,13 +263,6 @@
             key-positions = <52 57>;
             timeout-ms = <50>;
             layers = <0>;
-        };
-
-        LanguageLayer {
-            bindings = <&mo 3>;
-            key-positions = <74 44>;
-            timeout-ms = <50>;
-            layers = <0 3>;
         };
 
         f11_Alt {
@@ -373,12 +376,23 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp F1                      &kp F2                &kp F3                &kp F4                &kp F5                                                                                                                                              &kp F6                   &kp F7                      &kp F8                    &kp F9                    &kp F10
-&kp ESC                     &ShiftHold LS(N1) N1  &ShiftHold LS(N2) N2  &ShiftHold LS(N3) N3  &ShiftHold LS(N4) N4    &ShiftHold LS(N5) N5                                                                                  &ShiftHold LS(N6) N6  &ShiftHold LS(N7) N7     &ShiftHold LS(N8) N8        &ShiftHold LS(N9) N9      &ShiftHold LS(N0) N0      &kp BACKSLASH
-&kp TAB                     &kp Q                 &kp W                 &kp E                 &kp R                   &kp T                                                                                                 &kp Y                 &kp U                    &kp I                       &kp O                     &kp P                     &ShiftHold LS(MINUS) MINUS
-&ShiftHold LS(EQUAL) EQUAL  &HRM_Left LEFT_WIN A  &HRM_Left LEFT_ALT S  &HRM_Left LCTRL D     &HRM_Left LEFT_SHIFT F  &kp G                                                                                                 &kp H                 &HRM_Right LEFT_SHIFT J  &HRM_Right RCTRL K          &HRM_Right RIGHT_ALT L    &ShiftHold LS(SEMI) SEMI  &ShiftHold LS(SQT) SQT
-&kp GRAVE                   &ShiftHold LC(Z) Z    &ShiftHold LC(X) X    &ShiftHold LC(C) C    &ShiftHold LC(V) V      &kp B                 &DoubleTapShift  &sk LCTRL  &layer_td  &kp LGUI  &sk RCTRL   &sk RSHFT          &kp N                 &kp M                    &ShiftHold LS(COMMA) COMMA  &ShiftHold LS(DOT) DOT    &ShiftHold LS(FSLH) FSLH  &kp PG_UP
-&magic 2 0                  &kp HOME              &kp END               &kp LEFT              &kp RIGHT                                     &kp BACKSPACE    &kp DEL    &sk LALT   &sk RALT  &kp RETURN  &SpaceBarTapDance                        &kp UP                   &kp DOWN                    &ShiftHold LS(LBKT) LBKT  &ShiftHold LS(RBKT) RBKT  &kp PG_DN
+&kp F1                      &kp F2                &kp F3                &kp F4                &kp F5                                                                                                                                                 &kp F6                &kp F7                      &kp F8                    &kp F9                    &kp F10
+&kp ESC                     &ShiftHold LS(N1) N1  &ShiftHold LS(N2) N2  &ShiftHold LS(N3) N3  &ShiftHold LS(N4) N4  &ShiftHold LS(N5) N5                                                                                       &ShiftHold LS(N6) N6  &ShiftHold LS(N7) N7  &ShiftHold LS(N8) N8        &ShiftHold LS(N9) N9      &ShiftHold LS(N0) N0      &kp BACKSLASH
+&kp TAB                     &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                                                                                                      &kp Y                 &kp U                 &kp I                       &kp O                     &kp P                     &ShiftHold LS(MINUS) MINUS
+&ShiftHold LS(EQUAL) EQUAL  &kp A                 &kp S                 &kp D                 &kp F                 &kp G                                                                                                      &kp H                 &kp J                 &kp K                       &kp L                     &ShiftHold LS(SEMI) SEMI  &ShiftHold LS(SQT) SQT
+&kp GRAVE                   &ShiftHold LC(Z) Z    &ShiftHold LC(X) X    &ShiftHold LC(C) C    &ShiftHold LC(V) V    &kp B                 &DoubleTapShift       &sk LCTRL  &layer_td  &kp LGUI  &sk RCTRL   &sk RSHFT          &kp N                 &kp M                 &ShiftHold LS(COMMA) COMMA  &ShiftHold LS(DOT) DOT    &ShiftHold LS(FSLH) FSLH  &kp PG_UP
+&magic 3 0                  &kp HOME              &kp END               &kp LEFT              &kp RIGHT                                   &mm_DelLanguageLayer  &kp DEL    &sk LALT   &sk RALT  &kp RETURN  &SpaceBarTapDance                        &kp UP                &kp DOWN                    &ShiftHold LS(LBKT) LBKT  &ShiftHold LS(RBKT) RBKT  &kp PG_DN
+            >;
+        };
+
+        HomeRowMods {
+            bindings = <
+&trans  &trans  &trans            &trans             &trans                                                                                  &trans               &trans              &trans                  &trans  &trans
+&trans  &trans  &trans            &trans             &trans                  &trans                                                  &trans  &trans               &trans              &trans                  &trans  &trans
+&trans  &trans  &trans            &trans             &trans                  &trans                                                  &trans  &trans               &trans              &trans                  &trans  &trans
+&trans  &trans  &HRM_Left LALT S  &HRM_Left LCTRL D  &HRM_Left LEFT_SHIFT F  &trans                                                  &trans  &HRM_Right RSHIFT J  &HRM_Right RCTRL K  &HRM_Right RIGHT_ALT L  &trans  &trans
+&trans  &trans  &trans            &trans             &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans               &trans              &trans                  &trans  &trans
+&trans  &trans  &trans            &trans             &trans                          &trans  &trans  &trans  &trans  &trans  &trans          &trans               &trans              &trans                  &trans  &trans
             >;
         };
 
@@ -395,7 +409,7 @@
 
         magic_layer {
             bindings = <
-&bt BT_CLR   &none            &none            &none            &none                                                                                     &none  &none  &none  &none  &bt BT_CLR_ALL
+&bt BT_CLR   &kt CAPSLOCK     &kt SCROLLLOCK   &tog 1           &none                                                                                     &none  &none  &none  &none  &bt BT_CLR_ALL
 &none        &none            &none            &none            &none            &none                                                             &none  &none  &none  &none  &none  &none
 &none        &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                   &none  &none  &none  &none  &none  &none
 &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                   &none  &none  &none  &none  &none  &bootloader
