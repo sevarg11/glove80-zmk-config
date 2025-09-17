@@ -17,10 +17,10 @@
 // layers
 
 #define DEFAULT 0
-#define LOWER 1
-#define MAGIC 2
-#define LANGUAGE 3
-#define FACTORY_TEST 4
+#define HRM 1
+#define LOWER 2
+#define MAGIC 3
+#define LANGUAGE 4
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 
@@ -69,6 +69,18 @@
             >;
 
             layer-id = <DEFAULT>;
+        };
+
+        hrm {
+            bindings = <
+                &ug BLUE &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                >;
+            layer-id = <HRM>;
         };
 
         lower {
