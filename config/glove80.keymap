@@ -197,7 +197,7 @@
         mm_DelLanguageLayer: mm_DelLanguageLayer {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_DELLANGUAGELAYER";
-            bindings = <&kp DEL>, <&sl 4>;
+            bindings = <&kp BACKSPACE>, <&sl 4>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_RALT)>;
@@ -282,7 +282,7 @@
 
         umlautA {
             bindings = <&kp DE_A_UMLAUT>;
-            key-positions = <35 24>;
+            key-positions = <35 25>;
             layers = <0 1>;
             timeout-ms = <50>;
             require-prior-idle-ms = <50>;
