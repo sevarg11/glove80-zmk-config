@@ -297,24 +297,6 @@
             timeout-ms = <50>;
             layers = <0>;
         };
-
-        umlautA {
-            bindings = <&uc UC_DE_AE>;
-            key-positions = <35 25>;
-            layers = <0 1>;
-            timeout-ms = <50>;
-            require-prior-idle-ms = <50>;
-        };
-
-        umlautU {
-            bindings = <&uc UC_DE_UE>;
-            key-positions = <29 25>;
-        };
-
-        umlautO {
-            bindings = <&uc UC_DE_OE>;
-            key-positions = <31 25>;
-        };
     };
 
     /* #define for key positions */
