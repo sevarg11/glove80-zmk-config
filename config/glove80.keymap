@@ -215,11 +215,18 @@
         mm_DelLanguageLayer: mm_DelLanguageLayer {
             compatible = "zmk,behavior-mod-morph";
             label = "MM_DELLANGUAGELAYER";
-            bindings = <&kp BACKSPACE>, <&sl 4>;
+            bindings = <&DeleteTD>, <&sl 4>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_RALT)>;
             keep-mods = <(MOD_RSFT)>;
+        };
+
+        DeleteTD: DeleteTD {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DELETETD";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp LC(BACKSPACE)>;
         };
     };
 
